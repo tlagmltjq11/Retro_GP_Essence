@@ -2,11 +2,12 @@
 
 public class LateUpdateFollow : MonoBehaviour
 {
-    public Transform targetToFollow;
+    public Transform m_targetToFollow;
 
+    //Update 이후에 
     private void LateUpdate()
     {
-        transform.position = targetToFollow.position;
-        transform.rotation = targetToFollow.rotation;
+        transform.position = m_targetToFollow.position;
+        transform.rotation = m_targetToFollow.rotation;
     }
 }
