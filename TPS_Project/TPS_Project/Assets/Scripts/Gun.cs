@@ -150,6 +150,11 @@ public class Gun : MonoBehaviour
 
                 target.ApplyDamage(damageM);
             }
+            else
+            {
+                //데미지를 받을 수 없는 즉 생명체가 아니기 때문에 Common 이펙트를 재생시킨다.
+                EffectManager.Instance.PlayHitEffect(hit.point, hit.normal, hit.transform);
+            }
 
             hitPosition = hit.point;
         }

@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    #region Field
     private static UIManager instance;
     
     public static UIManager Instance
@@ -16,57 +17,60 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    [SerializeField] private GameObject gameoverUI;
-    [SerializeField] private Crosshair crosshair;
+    [SerializeField] private GameObject m_gameoverUI;
+    [SerializeField] private Crosshair m_crosshair;
 
-    [SerializeField] private Text healthText;
-    [SerializeField] private Text lifeText;
-    [SerializeField] private Text scoreText;
-    [SerializeField] private Text ammoText;
-    [SerializeField] private Text waveText;
+    [SerializeField] private Text m_healthText;
+    [SerializeField] private Text m_lifeText;
+    [SerializeField] private Text m_scoreText;
+    [SerializeField] private Text m_ammoText;
+    [SerializeField] private Text m_waveText;
+    #endregion
 
+    #region Public Methods
     public void UpdateAmmoText(int magAmmo, int remainAmmo)
     {
-        ammoText.text = magAmmo + "/" + remainAmmo;
+        m_ammoText.text = magAmmo + "/" + remainAmmo;
     }
 
     public void UpdateScoreText(int newScore)
     {
-        scoreText.text = "Score : " + newScore;
+        m_scoreText.text = "Score : " + newScore;
     }
     
     public void UpdateWaveText(int waves, int count)
     {
-        waveText.text = "Wave : " + waves + "\nEnemy Left : " + count;
+        m_waveText.text = "Wave : " + waves + "\nEnemy Left : " + count;
     }
 
     public void UpdateLifeText(int count)
     {
-        lifeText.text = "Life : " + count;
+        m_lifeText.text = "Life : " + count;
     }
 
     public void UpdateCrossHairPosition(Vector3 worldPosition)
     {
-        crosshair.UpdatePosition(worldPosition);
+        m_crosshair.UpdatePosition(worldPosition);
     }
     
     public void UpdateHealthText(float health)
     {
-        healthText.text = Mathf.Floor(health).ToString();
+        m_healthText.text = Mathf.Floor(health).ToString();
     }
     
     public void SetActiveCrosshair(bool active)
     {
-        crosshair.SetActiveCrosshair(active);
+        m_crosshair.SetActiveCrosshair(active);
     }
     
     public void SetActiveGameoverUI(bool active)
     {
-        gameoverUI.SetActive(active);
+        m_gameoverUI.SetActive(active);
     }
     
     public void GameRestart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+    #endregion
 }

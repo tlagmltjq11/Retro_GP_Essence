@@ -50,7 +50,7 @@ public class Enemy : LivingEntity
     private RaycastHit[] hits = new RaycastHit[10];
     private List<LivingEntity> lastAttackedTargets = new List<LivingEntity>();
     
-    private bool hasTarget => targetEntity != null && !targetEntity.dead;
+    private bool hasTarget => targetEntity != null && !targetEntity.m_dead;
     
 
 #if UNITY_EDITOR
@@ -85,12 +85,12 @@ public class Enemy : LivingEntity
 
     private void FixedUpdate()
     {
-        if (dead) return;
+        if (m_dead) return;
     }
 
     private IEnumerator UpdatePath()
     {
-        while (!dead)
+        while (!m_dead)
         {
             if (hasTarget)
             {
