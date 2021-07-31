@@ -2,32 +2,37 @@
 
 public class GameManager : MonoBehaviour
 {
-    private static GameManager instance;
+    #region Field
+    private static GameManager m_instance;
     
     public static GameManager Instance
     {
         get
         {
-            if (instance == null) instance = FindObjectOfType<GameManager>();
+            if (m_instance == null) m_instance = FindObjectOfType<GameManager>();
             
-            return instance;
+            return m_instance;
         }
     }
 
-    private int score;
+    private int m_score;
     public bool isGameover { get; private set; }
+    #endregion
 
+    #region Unity Methods
     private void Awake()
     {
         if (Instance != this) Destroy(gameObject);
     }
-    
+    #endregion
+
+    #region Public Methods
     public void AddScore(int newScore)
     {
         if (!isGameover)
         {
-            score += newScore;
-            UIManager.Instance.UpdateScoreText(score);
+            m_score += newScore;
+            UIManager.Instance.UpdateScoreText(m_score);
         }
     }
     
@@ -36,4 +41,5 @@ public class GameManager : MonoBehaviour
         isGameover = true;
         UIManager.Instance.SetActiveGameoverUI(true);
     }
+    #endregion
 }
