@@ -44,7 +44,7 @@ public class Enemy : LivingEntity
     public float m_fieldOfView = 50f; //시야각
     public float m_viewDistance = 10f; //시야거리
     
-    public LivingEntity m_targetEntity; //추적할 대상
+    [HideInInspector] public LivingEntity m_targetEntity; //추적할 대상
     public LayerMask m_whatIsTarget; //레이어필터
 
     private RaycastHit[] m_hits = new RaycastHit[10]; //범위 기반의 레이캐스트를 사용할 것이기 때문에 배열로

@@ -2,10 +2,14 @@
 
 public class Rotator : MonoBehaviour
 {
-    public float rotationSpeed = 60f;
+    #region Field
+    public float m_rotationSpeed = 60f;
+    #endregion
 
+    #region Unity Methods
     private void Update()
     {
-        transform.Rotate(0f, rotationSpeed * Time.deltaTime, 0f);
+        transform.Rotate(0f, m_rotationSpeed * Time.deltaTime, 0f);
     }
+    #endregion
 }

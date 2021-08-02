@@ -2,10 +2,21 @@
 
 public class HealthPack : MonoBehaviour, IItem
 {
-    public float health = 50;
+    #region Field
+    public float m_health = 50;
+    #endregion
 
+    #region Public Methods
     public void Use(GameObject target)
     {
+        var livingEntity = target.GetComponent<LivingEntity>();
+        
+        if(livingEntity != null)
+        {
+            livingEntity.RestoreHealth(m_health);
+        }
 
+        Destroy(gameObject);
     }
+    #endregion
 }

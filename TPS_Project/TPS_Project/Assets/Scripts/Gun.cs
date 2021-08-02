@@ -34,6 +34,7 @@ public class Gun : MonoBehaviour
     public int m_ammoRemain = 100; //총 남은 탄약
     public int m_magAmmo; //현재 탄창의 탄약
     public int m_magCapacity = 30; //탄창의 최대 총알 수
+    public int m_initAmmo = 100; //초기화 될 탄약의 수
 
     public float m_timeBetFire = 0.12f; //연사속도
     public float m_reloadTime = 1.8f; //재장전 시간
